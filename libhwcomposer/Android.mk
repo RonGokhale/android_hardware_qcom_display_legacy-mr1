@@ -9,6 +9,9 @@ LOCAL_SHARED_LIBRARIES        := $(common_libs) libEGL liboverlay libgenlock \
                                  libexternal libqdutils libhardware_legacy \
                                  libdl libmemalloc libqservice libGLESv1_CM
 
+common_flags += -DNO_HW_VSYNC
+
+
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"hwcomposer\"
 LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 LOCAL_SRC_FILES               := hwc.cpp          \
