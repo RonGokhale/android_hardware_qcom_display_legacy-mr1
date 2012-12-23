@@ -37,12 +37,8 @@ LOCAL_SHARED_LIBRARIES := $(common_libs) libgenlock libqdutils
 LOCAL_CFLAGS           := $(common_flags) -DLOG_TAG=\"memalloc\"
 LOCAL_SRC_FILES        := alloc_controller.cpp
 
-ifneq ($(TARGET_USES_ION),false)
-    LOCAL_SRC_FILES += ionalloc.cpp
-else
-    LOCAL_SRC_FILES += ashmemalloc.cpp \
-                       pmemalloc.cpp \
-                       pmem_bestfit_alloc.cpp
-endif
+LOCAL_SRC_FILES += ashmemalloc.cpp \
+                   pmemalloc.cpp \
+                   pmem_bestfit_alloc.cpp
 
 include $(BUILD_SHARED_LIBRARY)
